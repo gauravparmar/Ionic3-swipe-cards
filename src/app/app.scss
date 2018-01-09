@@ -16,6 +16,7 @@
 // automatically applied to the <body> element in the app.
 ion-app.ios [padding] .scroll-content,ion-app.md [padding] .scroll-content{
     padding: 0px; 
+    overflow: hidden;
 }
 
 ion-card img {
@@ -26,4 +27,10 @@ ion-card img {
 
 button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
     height: 8rem;
+}
+
+.tabs-ios[tabsPlacement=top] .tabbar {
+    border-top: 0;
+    border-bottom: 0.55px solid rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
 }

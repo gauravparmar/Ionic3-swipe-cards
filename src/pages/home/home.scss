@@ -35,4 +35,18 @@ page-home {
   .card_user_city{
     font-size: 1.5rem;  
   }
+
+  // iOS
+  .button-clear-ios-primary {
+      border-color: transparent;
+      color: #488aff;
+      background-color: transparent;
+      height: 8rem;
+  }
+  .tabs-ios[tabsPlacement=top] .tabbar {
+      border-top: 0;
+      border-bottom: 0.55px solid rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+  }
+  ///iOS
 }
