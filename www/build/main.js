@@ -104,7 +104,7 @@ var HomePage = (function () {
     HomePage.prototype.voteUp = function (like) {
         var removedCard = this.cards.pop();
         this.addNewCards(1);
-        if (!like) {
+        if (like) {
             this.recentCard = 'You liked: ' + removedCard.email;
         }
         else {
@@ -134,20 +134,19 @@ var HomePage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myswing1'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_swing__["SwingStackComponent"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_swing__["SwingStackComponent"]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3_angular2_swing__["SwingStackComponent"])
     ], HomePage.prototype, "swingStack", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChildren"])('mycards1'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["QueryList"])
     ], HomePage.prototype, "swingCards", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n \n<ion-content padding>\n<div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">\n    <ion-card #mycards1 swing-card *ngFor="let c of cards">\n      <ion-item *ngIf="c.picture">\n        <ion-avatar item-left>\n          <img *ngIf="c.picture"[src]="c.picture.medium">\n        </ion-avatar>\n        <h2>{{ c.name.first }} {{ c.name.last}}</h2>\n        <p>{{ c.email }}</p>\n      </ion-item>\n \n      <ion-card-content *ngIf="c.location">\n        From: {{ c.location.city }}, {{ c.location.postcode }}<br>\n        Phone: {{ c.phone }}\n      </ion-card-content>\n \n      <ion-row *ngIf="c.name">\n        <ion-col>\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">\n            <ion-icon name="thumbs-up"></ion-icon>\n            Yes\n          </button>\n        </ion-col>\n        <ion-col>\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">\n            <ion-icon name="thumbs-down"></ion-icon>\n            No\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n  </div>\n  <p style="text-align: center; width: 100%;">{{ recentCard }}</p>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n \n<ion-content padding>\n  <!-- Card stack container -->\n  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">\n    <!-- Card container -->\n    <ion-card #mycards1 swing-card *ngFor="let c of cards">\n      <ion-row *ngIf="c.picture">\n        <ion-col>\n            <img *ngIf="c.picture" [src]="c.picture.medium">  \n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="c.picture">\n        <ion-col class="card_user_info">\n            <h2 class="card_user_name">{{ c.name.first }} {{ c.name.last}}</h2>  \n            <h4 class="card_user_city">{{ c.location.city }}</h4>\n        </ion-col>\n      </ion-row>\n      \n\n      <!-- <ion-item *ngIf="c.picture"> -->\n        <!-- <ion-avatar item-left>\n          <img *ngIf="c.picture" [src]="c.picture.medium">\n        </ion-avatar> -->\n        <!-- <h2>{{ c.name.first }} {{ c.name.last}}</h2> -->\n        <!-- <p>{{ c.email }}</p> -->\n        <!-- <h4>{{ c.location.city }}</h4> -->\n        <!-- <ion-card-content *ngIf="c.location"> -->\n          \n          <!-- From: {{ c.location.city }}, {{ c.location.postcode }}<br>\n          Phone: {{ c.phone }} -->\n        <!-- </ion-card-content> -->\n      <!-- </ion-item> -->\n \n      \n \n      <ion-row *ngIf="c.name">\n        <ion-col>\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">\n            <!-- <ion-icon name="thumbs-down"></ion-icon> -->\n            <ion-icon name="close-circle" class="dislikeicon"></ion-icon>\n            <!-- No -->\n          </button>\n        </ion-col>\n        <ion-col>\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">\n            <ion-icon name="heart" class="likeicon"></ion-icon>\n            <!-- <ion-icon name="thumbs-up"></ion-icon> -->\n            <!-- Yes -->\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <!--/ Card container -->\n  </div>\n  <!-- <p style="text-align: center; width: 100%;">{{ recentCard }}</p> -->\n  <!--/ Card stack container -->\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map

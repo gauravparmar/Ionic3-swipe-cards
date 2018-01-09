@@ -25678,10 +25678,24 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+ion-app.ios [padding] .scroll-content, ion-app.md [padding] .scroll-content {
+  padding: 0px;
+}
+
+ion-card img {
+  display: block;
+  width: 100rem;
+  height: 40rem;
+}
+
+button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
+  height: 8rem;
+}
+
 page-home #card-stack {
-  width: 90%;
-  height: 200px;
-  margin: 100px auto 0;
+  width: 100%;
+  height: 60rem;
+  margin: 0px auto 0;
   position: relative;
 }
 
@@ -25691,4 +25705,29 @@ page-home #card-stack ion-card {
   text-align: center;
   top: 3%;
   height: 90%;
+}
+
+page-home .likeicon, page-home .dislikeicon {
+  font-size: 5em;
+}
+
+page-home .likeicon {
+  color: red;
+}
+
+page-home .dislikeicon {
+  color: gray;
+}
+
+page-home .card_user_info {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+page-home .card_user_name {
+  font-size: 2.2rem;
+}
+
+page-home .card_user_city {
+  font-size: 1.5rem;
 }
