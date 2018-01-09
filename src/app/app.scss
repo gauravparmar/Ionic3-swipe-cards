@@ -26,11 +26,15 @@ ion-card img {
 }
 
 button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
-    height: 8rem;
+    height: 5rem;
 }
 
 .tabs-ios[tabsPlacement=top] .tabbar {
     border-top: 0;
     border-bottom: 0.55px solid rgba(0, 0, 0, 0.3);
     margin-top: 20px;
+}
+
+ion-icon.tab-button-icon.icon.icon-md{
+    font-size: 4rem;
 }
