@@ -183,7 +183,7 @@ var TabsPage = (function () {
     };
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-tabs',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root"  tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root"  tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root"  tabIcon="contacts"></ion-tab>\n</ion-tabs>\n  '/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root"  tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab2Root"  tabIcon="chatbubbles"></ion-tab>\n  <ion-tab [root]="tab3Root"  tabIcon="settings"></ion-tab>\n</ion-tabs>\n  '/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], TabsPage);
