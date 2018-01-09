@@ -6,16 +6,23 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ProfilePage } from '../pages/profile/profile';
+import { ChatsPage } from '../pages/chats/chats';
 
 //For swipe cards
 import { HttpModule } from '@angular/http';
 import { SwingModule } from 'angular2-swing';
 ///For swipe cards
 
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    ProfilePage,
+    ChatsPage
   ],
   imports: [
     BrowserModule,
@@ -23,12 +30,16 @@ import { SwingModule } from 'angular2-swing';
     HttpModule,
     SwingModule,
     ///For swipe cards
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{tabsPlacement:"top"}),
+    // IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    ProfilePage,
+    ChatsPage
   ],
   providers: [
     StatusBar,
