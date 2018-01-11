@@ -47,7 +47,8 @@ export class HomePage {
       event.target.style.background = '#ffffff';
     });
     
-    this.cards = [{email: ''}];
+    // this.cards = [{email: ''}];
+    this.cards = [{}];
     this.addNewCards(1);
   }
 
@@ -56,7 +57,6 @@ onItemMove(element, x, y, r) {
   var color = '';
   var abs = Math.abs(x);
   let min = Math.trunc(Math.min(16*16 - abs, 16*16));
-  // let min = Math.trunc(Math.min(12*12 - abs, 12*12));
   let hexCode = this.decimalToHex(min, 2);
   
   if (x < 0) {
@@ -64,9 +64,7 @@ onItemMove(element, x, y, r) {
   } else {
     color = '#' + hexCode + 'FF' + hexCode;
   }
-  
-  console.log(color);
-  
+
   element.style.background = color;
   element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
 }
@@ -91,8 +89,13 @@ addNewCards(count: number) {
   .map(data => data.json().results)
   .subscribe(result => {
     for (let val of result) {
+      console.log("pushing : "+JSON.stringify(val));
       this.cards.push(val);
+      // this.cards=this.cards.reverse();
+      // this.cards.reverse();
     }
+    // this.cards=this.cards.reverse();
+    console.log("cards : "+JSON.stringify(this.cards));
   })
 }
  

@@ -25711,7 +25711,7 @@ ion-icon.tab-button-icon.icon.icon-md {
 }
 
 .tabs-ios .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-  color: #336fe9;
+  color: #4aaef5;
 }
 
 .tabs-md .tab-button {
@@ -25723,7 +25723,7 @@ page-home #card-stack {
   height: 58rem;
   margin: 0px auto 0;
   position: relative;
-  background-color: #336fe9;
+  background-color: #4aaef5;
 }
 
 page-home #card-stack ion-card {
@@ -25739,7 +25739,7 @@ page-home .likeicon, page-home .dislikeicon {
 }
 
 page-home .likeicon {
-  color: #336fe9;
+  color: #4aaef5;
 }
 
 page-home .dislikeicon {

@@ -242,15 +242,15 @@ var HomePage = (function () {
         this.swingStack.throwin.subscribe(function (event) {
             event.target.style.background = '#ffffff';
         });
-        this.cards = [{ email: '' }];
-        this.addNewCards(1);
+        // this.cards = [{email: ''}];
+        this.cards = [{}];
+        this.addNewCards(2);
     };
     // Called whenever we drag an element
     HomePage.prototype.onItemMove = function (element, x, y, r) {
         var color = '';
         var abs = Math.abs(x);
         var min = Math.trunc(Math.min(16 * 16 - abs, 16 * 16));
-        // let min = Math.trunc(Math.min(12*12 - abs, 12*12));
         var hexCode = this.decimalToHex(min, 2);
         if (x < 0) {
             color = '#FF' + hexCode + hexCode;
@@ -258,7 +258,6 @@ var HomePage = (function () {
         else {
             color = '#' + hexCode + 'FF' + hexCode;
         }
-        console.log(color);
         element.style.background = color;
         element.style['transform'] = "translate3d(0, 0, 0) translate(" + x + "px, " + y + "px) rotate(" + r + "deg)";
     };
@@ -283,8 +282,12 @@ var HomePage = (function () {
             .subscribe(function (result) {
             for (var _i = 0, result_1 = result; _i < result_1.length; _i++) {
                 var val = result_1[_i];
+                console.log("pushing : " + JSON.stringify(val));
+                _this.cards.reverse();
                 _this.cards.push(val);
+                // this.cards.reverse();
             }
+            console.log("cards : " + JSON.stringify(_this.cards));
         });
     };
     // http://stackoverflow.com/questions/57803/how-to-convert-decimal-to-hex-in-javascript
