@@ -25690,6 +25690,13 @@ ion-card img {
 }
 
 button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
+  height: 4rem;
+}
+
+.button-clear-ios-primary {
+  border-color: transparent;
+  color: #488aff;
+  background-color: transparent;
   height: 5rem;
 }
 
@@ -25700,7 +25707,15 @@ button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.
 }
 
 ion-icon.tab-button-icon.icon.icon-md {
-  font-size: 4rem;
+  font-size: 3rem;
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: #336fe9;
+}
+
+.tabs-md .tab-button {
+  min-height: 4.3rem;
 }
 
 page-home #card-stack {
@@ -25708,7 +25723,7 @@ page-home #card-stack {
   height: 58rem;
   margin: 0px auto 0;
   position: relative;
-  background-color: #eae7e7;
+  background-color: #336fe9;
 }
 
 page-home #card-stack ion-card {
@@ -25724,7 +25739,7 @@ page-home .likeicon, page-home .dislikeicon {
 }
 
 page-home .likeicon {
-  color: red;
+  color: #336fe9;
 }
 
 page-home .dislikeicon {
@@ -25742,6 +25757,11 @@ page-home .card_user_name {
 
 page-home .card_user_city {
   font-size: 1.5rem;
+}
+
+page-home button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
+  height: auto;
+  padding: 0.5rem;
 }
 
 page-home .button-clear-ios-primary {

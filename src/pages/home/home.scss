@@ -1,10 +1,12 @@
 page-home {
+  
+
   #card-stack {
     width: 100%;
     height: 58rem;
     margin: 0px auto 0;
     position: relative;
-    background-color: #eae7e7;
+    background-color:#336fe9;
   }
    
   #card-stack ion-card {
@@ -20,7 +22,7 @@ page-home {
   }
 
   .likeicon{
-    color: red;
+    color: #336fe9;
   }
   .dislikeicon{
     color: gray;
@@ -35,6 +37,15 @@ page-home {
   .card_user_city{
     font-size: 1.5rem;  
   }
+  
+  button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
+      height: auto;
+      padding: 0.5rem;
+  }
+
+  // ion-col.responseIcon.col {
+  //   border: 2  px solid #d8d9db;
+  // }
 
   // iOS
   .button-clear-ios-primary {

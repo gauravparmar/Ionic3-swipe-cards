@@ -56,6 +56,7 @@ onItemMove(element, x, y, r) {
   var color = '';
   var abs = Math.abs(x);
   let min = Math.trunc(Math.min(16*16 - abs, 16*16));
+  // let min = Math.trunc(Math.min(12*12 - abs, 12*12));
   let hexCode = this.decimalToHex(min, 2);
   
   if (x < 0) {
@@ -64,6 +65,8 @@ onItemMove(element, x, y, r) {
     color = '#' + hexCode + 'FF' + hexCode;
   }
   
+  console.log(color);
+  
   element.style.background = color;
   element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
 }
@@ -71,14 +74,17 @@ onItemMove(element, x, y, r) {
 // Connected through HTML
 voteUp(like: boolean) {
   let removedCard = this.cards.pop();
+
   this.addNewCards(1);
-  if (!like) {
-    this.recentCard = 'You liked: ' + removedCard.email;
+  if (like) {
+    // this.recentCard = 'You liked: ' + removedCard.email;
+    console.log('You liked: ' + removedCard.email);
   } else {
-    this.recentCard = 'You disliked: ' + removedCard.email;
+    // this.recentCard = 'You disliked: ' + removedCard.email;
+    console.log('You disliked: ' + removedCard.email);
   }
 }
- 
+
 // Add new cards to our array
 addNewCards(count: number) {
   this.http.get('https://randomuser.me/api/?results=' + count)

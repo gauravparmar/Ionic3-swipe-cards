@@ -183,7 +183,7 @@ var TabsPage = (function () {
     };
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-tabs',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root"  tabIcon="ios-people"></ion-tab>\n  <ion-tab [root]="tab2Root"  tabIcon="ios-chatbubbles"></ion-tab>\n  <ion-tab [root]="tab3Root"  tabIcon="ios-settings"></ion-tab>\n</ion-tabs>\n  '/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root"  tabIcon="flash"></ion-tab>\n  <ion-tab [root]="tab2Root"  tabIcon="chatbubbles"></ion-tab>\n  <ion-tab [root]="tab3Root"  tabIcon="contact"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\tabs\tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], TabsPage);
@@ -250,6 +250,7 @@ var HomePage = (function () {
         var color = '';
         var abs = Math.abs(x);
         var min = Math.trunc(Math.min(16 * 16 - abs, 16 * 16));
+        // let min = Math.trunc(Math.min(12*12 - abs, 12*12));
         var hexCode = this.decimalToHex(min, 2);
         if (x < 0) {
             color = '#FF' + hexCode + hexCode;
@@ -257,6 +258,7 @@ var HomePage = (function () {
         else {
             color = '#' + hexCode + 'FF' + hexCode;
         }
+        console.log(color);
         element.style.background = color;
         element.style['transform'] = "translate3d(0, 0, 0) translate(" + x + "px, " + y + "px) rotate(" + r + "deg)";
     };
@@ -264,11 +266,13 @@ var HomePage = (function () {
     HomePage.prototype.voteUp = function (like) {
         var removedCard = this.cards.pop();
         this.addNewCards(1);
-        if (!like) {
-            this.recentCard = 'You liked: ' + removedCard.email;
+        if (like) {
+            // this.recentCard = 'You liked: ' + removedCard.email;
+            console.log('You liked: ' + removedCard.email);
         }
         else {
-            this.recentCard = 'You disliked: ' + removedCard.email;
+            // this.recentCard = 'You disliked: ' + removedCard.email;
+            console.log('You disliked: ' + removedCard.email);
         }
     };
     // Add new cards to our array
@@ -302,7 +306,7 @@ var HomePage = (function () {
     ], HomePage.prototype, "swingCards", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/'<!-- <ion-header>\n  <ion-navbar>\n        \n  </ion-navbar>\n</ion-header> -->\n\n<ion-content padding  class="no-scroll">\n  <!-- Card stack container -->\n  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">\n    <!-- Card container -->\n    <ion-card #mycards1 swing-card *ngFor="let c of cards">\n      <ion-row *ngIf="c.picture">\n        <ion-col>\n            <img *ngIf="c.picture" [src]="c.picture.medium">  \n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="c.picture">\n        <ion-col class="card_user_info">\n            <h2 class="card_user_name">{{ c.name.first }} {{ c.name.last}}</h2>  \n            <h4 class="card_user_city">{{ c.location.city }}</h4>\n        </ion-col>\n      </ion-row>\n      \n\n      <!-- <ion-item *ngIf="c.picture"> -->\n        <!-- <ion-avatar item-left>\n          <img *ngIf="c.picture" [src]="c.picture.medium">\n        </ion-avatar> -->\n        <!-- <h2>{{ c.name.first }} {{ c.name.last}}</h2> -->\n        <!-- <p>{{ c.email }}</p> -->\n        <!-- <h4>{{ c.location.city }}</h4> -->\n        <!-- <ion-card-content *ngIf="c.location"> -->\n          \n          <!-- From: {{ c.location.city }}, {{ c.location.postcode }}<br>\n          Phone: {{ c.phone }} -->\n        <!-- </ion-card-content> -->\n      <!-- </ion-item> -->\n \n      \n \n      <ion-row *ngIf="c.name">\n        <ion-col>\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">\n            <!-- <ion-icon name="thumbs-down"></ion-icon> -->\n            <ion-icon name="close-circle" class="dislikeicon"></ion-icon>\n            <!-- No -->\n          </button>\n        </ion-col>\n        <ion-col>\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">\n            <ion-icon name="heart" class="likeicon"></ion-icon>\n            <!-- <ion-icon name="thumbs-up"></ion-icon> -->\n            <!-- Yes -->\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <!--/ Card container -->\n  </div>\n  <!-- <p style="text-align: center; width: 100%;">{{ recentCard }}</p> -->\n  <!--/ Card stack container -->\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/'<!-- <ion-header>\n  <ion-navbar>\n        \n  </ion-navbar>\n</ion-header> -->\n\n<ion-content padding  class="no-scroll">\n  <!-- Card stack container -->\n  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">\n    <!-- Card container -->\n    <ion-card #mycards1 swing-card *ngFor="let c of cards">\n      <ion-row *ngIf="c.picture">\n        <ion-col>\n            <img *ngIf="c.picture" [src]="c.picture.large">  \n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="c.picture">\n        <ion-col class="card_user_info">\n            <h2 class="card_user_name">{{ c.name.first }} {{ c.name.last}}</h2>  \n            <h4 class="card_user_city">{{ c.location.city }}</h4>\n        </ion-col>\n      </ion-row>\n      \n\n      <!-- <ion-item *ngIf="c.picture"> -->\n        <!-- <ion-avatar item-left>\n          <img *ngIf="c.picture" [src]="c.picture.medium">\n        </ion-avatar> -->\n        <!-- <h2>{{ c.name.first }} {{ c.name.last}}</h2> -->\n        <!-- <p>{{ c.email }}</p> -->\n        <!-- <h4>{{ c.location.city }}</h4> -->\n        <!-- <ion-card-content *ngIf="c.location"> -->\n          \n          <!-- From: {{ c.location.city }}, {{ c.location.postcode }}<br>\n          Phone: {{ c.phone }} -->\n        <!-- </ion-card-content> -->\n      <!-- </ion-item> -->\n \n      \n \n      <ion-row *ngIf="c.name">\n        <ion-col class="responseIcon">\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">\n            <!-- <ion-icon name="thumbs-down"></ion-icon> -->\n            <ion-icon name="close-circle" class="dislikeicon"></ion-icon>\n            <!-- No -->\n          </button>\n        </ion-col>\n        <ion-col  class="responseIcon">\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">\n            <ion-icon name="heart" class="likeicon"></ion-icon>\n            <!-- <ion-icon name="thumbs-up"></ion-icon> -->\n            <!-- Yes -->\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <!--/ Card container -->\n  </div>\n  <!-- <p style="text-align: center; width: 100%;">{{ recentCard }}</p> -->\n  <!--/ Card stack container -->\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], HomePage);
