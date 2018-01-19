@@ -39,7 +39,7 @@ export class HomePage {
         this.onItemMove(element, x, y, r);
       },
       throwOutDistance: (d) => {
-        return 800;
+        return 300;
       }
     };
   }
@@ -116,17 +116,17 @@ export class HomePage {
         //   let card1=this.cards.pop();
         //   console.log('popped'+card1);
         // }
-        let shiftCards;
+        let shiftCards,oldCard,oldCard2;
         shiftCards=false;
         if(this.cards.length==2){
-          let oldCard = this.cards.pop();
-          let oldCard2 = this.cards.pop();
+          oldCard = this.cards.pop();
+          oldCard2 = this.cards.pop();
           shiftCards=true;
         }
         this.cards.push(val);
         
         if(shiftCards){
-          console.log('Pushing oldCard '+oldCard);
+          // console.log('Pushing oldCard '+oldCard);
           this.cards.push(oldCard2);
           this.cards.push(oldCard);
         }

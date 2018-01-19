@@ -25678,6 +25678,11 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.likeicon, .button-clear-ios-primary,
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: #2f72f0;
+}
+
 ion-app.ios [padding] .scroll-content, ion-app.md [padding] .scroll-content {
   padding: 0px;
   overflow: hidden;
@@ -25695,7 +25700,6 @@ button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.
 
 .button-clear-ios-primary {
   border-color: transparent;
-  color: #488aff;
   background-color: transparent;
   height: 5rem;
 }
@@ -25710,12 +25714,12 @@ ion-icon.tab-button-icon.icon.icon-md {
   font-size: 3rem;
 }
 
-.tabs-ios .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-  color: #4aaef5;
-}
-
 .tabs-md .tab-button {
   min-height: 4.3rem;
+}
+
+.scroll-content, #card-stack {
+  background-color: #dae4f6;
 }
 
 page-home #card-stack {
@@ -25723,7 +25727,6 @@ page-home #card-stack {
   height: 58rem;
   margin: 0px auto 0;
   position: relative;
-  background-color: #4aaef5;
 }
 
 page-home ion-card.card.card-md {
@@ -25738,12 +25741,12 @@ page-home #card-stack ion-card {
   height: 90%;
 }
 
-page-home .likeicon, page-home .dislikeicon {
-  font-size: 4em;
+page-home .likeicon {
+  font-size: 6rem;
 }
 
-page-home .likeicon {
-  color: #4aaef5;
+page-home .dislikeicon {
+  font-size: 7rem;
 }
 
 page-home .dislikeicon {
@@ -25757,10 +25760,13 @@ page-home .card_user_info {
 
 page-home .card_user_name {
   font-size: 2.2rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 page-home .card_user_city {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  text-align: center;
 }
 
 page-home button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
@@ -25770,7 +25776,29 @@ page-home button.disable-hover.button.button-md.button-clear.button-clear-md.but
 
 page-home .button-clear-ios-primary {
   border-color: transparent;
-  color: #488aff;
   background-color: transparent;
   height: 8rem;
+}
+
+page-home ion-col.responseIcon.col {
+  text-align: center;
+  bottom: 7em;
+}
+
+page-home ion-icon.dislikeicon.icon.icon-md.ion-md-close-circle {
+  background-color: white;
+  padding: 5.7px 0px;
+  border-radius: 0.6em;
+  border: 0.6rem solid #2f72f0;
+  /* padding: 0.0em; */
+  /* margin: 0px; */
+}
+
+page-home ion-icon.likeicon.icon.icon-md.ion-md-heart {
+  background-color: white;
+  padding: 11px 4px 5px 4px;
+  border-radius: 0.8em;
+  border: 0.6rem solid #2f72f0;
+  /* padding: 0.0em; */
+  /* margin: 0px; */
 }

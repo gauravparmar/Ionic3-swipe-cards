@@ -6,7 +6,7 @@ page-home {
     height: 58rem;
     margin: 0px auto 0;
     position: relative;
-    background-color:#4aaef5;
+    // background-color:#dae4f6;
   }
 
   ion-card.card.card-md{
@@ -21,13 +21,13 @@ page-home {
     height: 90%;
   }
 
-  .likeicon, .dislikeicon{
-      font-size: 4em;
-  }
-
   .likeicon{
-    color: #4aaef5;
+      font-size: 6rem;
   }
+  .dislikeicon{
+      font-size: 7rem;
+  }
+  
   .dislikeicon{
     color: gray;
   }
@@ -37,9 +37,12 @@ page-home {
   }
   .card_user_name{
     font-size: 2.2rem;  
+    text-align: center;
+    font-weight: bold;
   }
   .card_user_city{
-    font-size: 1.5rem;  
+    font-size: 1.7rem;  
+    text-align: center;
   }
   
   button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.button-small-md.button-clear-md-primary {
@@ -54,10 +57,34 @@ page-home {
   // iOS
   .button-clear-ios-primary {
       border-color: transparent;
-      color: #488aff;
       background-color: transparent;
       height: 8rem;
   }
   
   ///iOS
+
+  ion-col.responseIcon.col {
+      // z-index: 1000;
+      text-align: center;
+      // top: 37em;
+      bottom:7em;
+  }
+
+  ion-icon.dislikeicon.icon.icon-md.ion-md-close-circle {
+      background-color: white;
+      padding: 5.7px 0px;
+      border-radius: 0.6em;
+      border: 0.6rem solid #2f72f0;
+      /* padding: 0.0em; */
+      /* margin: 0px; */
+  }
+
+  ion-icon.likeicon.icon.icon-md.ion-md-heart {
+      background-color: white;
+      padding: 11px 4px 5px 4px;
+      border-radius: 0.8em;
+      border: 0.6rem solid #2f72f0;
+      /* padding: 0.0em; */
+      /* margin: 0px; */
+  }
 }

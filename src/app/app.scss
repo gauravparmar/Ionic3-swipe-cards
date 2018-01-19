@@ -14,6 +14,12 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.likeicon,.button-clear-ios-primary,
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon,.tabs-md .tab-button[aria-selected=true] .tab-button-icon 
+{
+    color: #2f72f0;
+}
+
 ion-app.ios [padding] .scroll-content,ion-app.md [padding] .scroll-content{
     padding: 0px; 
     overflow: hidden;
@@ -31,7 +37,6 @@ button.disable-hover.button.button-md.button-clear.button-clear-md.button-small.
 
 .button-clear-ios-primary {
     border-color: transparent;
-    color: #488aff;
     background-color: transparent;
     height: 5rem;
 }
@@ -46,9 +51,6 @@ ion-icon.tab-button-icon.icon.icon-md{
     font-size: 3rem;
 }
 
-.tabs-ios .tab-button[aria-selected=true] .tab-button-icon,.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-    color: #4aaef5;
-}
 
 
 // .tabs a:not(:last-of-type) {
@@ -57,4 +59,9 @@ ion-icon.tab-button-icon.icon.icon-md{
 
 .tabs-md .tab-button {
     min-height: 4.3rem;
+}
+
+
+.scroll-content,#card-stack {
+    background-color:#dae4f6;
 }
