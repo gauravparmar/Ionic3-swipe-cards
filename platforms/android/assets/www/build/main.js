@@ -243,8 +243,8 @@ var HomePage = (function () {
             event.target.style.background = '#ffffff';
         });
         // this.cards = [{email: ''}];
-        this.cards = [{}];
-        this.addNewCards(2);
+        this.cards = [];
+        this.addNewCards(3);
     };
     // Called whenever we drag an element
     HomePage.prototype.onItemMove = function (element, x, y, r) {
@@ -258,20 +258,33 @@ var HomePage = (function () {
         else {
             color = '#' + hexCode + 'FF' + hexCode;
         }
+        if (color.length > 7) {
+            color = '#FFFFFF';
+        }
+        // console.log('color :'+color.length);
         element.style.background = color;
         element.style['transform'] = "translate3d(0, 0, 0) translate(" + x + "px, " + y + "px) rotate(" + r + "deg)";
     };
     // Connected through HTML
     HomePage.prototype.voteUp = function (like) {
+        console.log('voteup called with ' + like);
+        console.log('this.cards : ' + JSON.stringify(this.cards));
         var removedCard = this.cards.pop();
+        console.log('length ' + Object.keys(removedCard).length);
+        // if(Object.keys(removedCard).length == 0){
+        //   console.log('Popped two cards');
+        //   removedCard = this.cards.pop();
+        // }
+        console.log('removedCard : ' + JSON.stringify(removedCard));
         this.addNewCards(1);
         if (like) {
             // this.recentCard = 'You liked: ' + removedCard.email;
-            console.log('You liked: ' + removedCard.email);
+            console.log('You liked: ' + removedCard.name.first + ' ' + removedCard.name.last);
         }
         else {
             // this.recentCard = 'You disliked: ' + removedCard.email;
-            console.log('You disliked: ' + removedCard.email);
+            console.log('You disliked: ' + removedCard.name.first + ' ' + removedCard.name.last);
+            // console.log('You disliked: ' + removedCard.email);
         }
     };
     // Add new cards to our array
@@ -283,13 +296,49 @@ var HomePage = (function () {
             for (var _i = 0, result_1 = result; _i < result_1.length; _i++) {
                 var val = result_1[_i];
                 console.log("pushing : " + JSON.stringify(val));
-                _this.cards.reverse();
+                // this.cards=this.cards.reverse();
+                // if(this.cards.length>1){
+                //   console.log('popping cards');
+                //   let card2=this.cards.pop();
+                //   console.log('popped'+card2);
+                //   let card1=this.cards.pop();
+                //   console.log('popped'+card1);
+                // }
+                var oldCard = _this.cards.pop();
                 _this.cards.push(val);
+                if (oldCard) {
+                    console.log('Pushing oldCard ' + oldCard);
+                    _this.cards.push(oldCard);
+                }
+                // if(this.cards.length>1){
+                //   this.cards.push(card1);
+                //   this.cards.push(card2);
+                // }
+                // this.cards=this.cards.reverse();
+                // this.cards.unshift(val);
                 // this.cards.reverse();
             }
+            // this.cards=this.cards.reverse();
             console.log("cards : " + JSON.stringify(_this.cards));
         });
     };
+    // Add new cards to our array
+    // addNewCards2(count: number) {
+    //   this.http.get('https://randomuser.me/api/?results=' + count)
+    //   .map(data => data.json().results)
+    //   .subscribe(result => {
+    //     for (let val of result) {
+    //       console.log("pushing : "+JSON.stringify(val));
+    //       // this.cards=this.cards.reverse();
+    //       this.cards.unshift(val);
+    //       // this.cards=this.cards.reverse();
+    //       // this.cards.unshift(val);
+    //       // this.cards.reverse();
+    //     }
+    //     // this.cards=this.cards.reverse();
+    //     console.log("cards : "+JSON.stringify(this.cards));
+    //   })
+    // }
     // http://stackoverflow.com/questions/57803/how-to-convert-decimal-to-hex-in-javascript
     HomePage.prototype.decimalToHex = function (d, padding) {
         var hex = Number(d).toString(16);
@@ -298,6 +347,15 @@ var HomePage = (function () {
             hex = "0" + hex;
         }
         return hex;
+    };
+    HomePage.prototype.trackByCards = function (index, cardData) {
+        // console.log('trackByCards');
+        // console.log(cardData);
+        // console.log(cardData.email);
+        // if(cardData)
+        return cardData.email;
+        // else
+        //   return true;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myswing1'),
@@ -309,7 +367,7 @@ var HomePage = (function () {
     ], HomePage.prototype, "swingCards", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/'<!-- <ion-header>\n  <ion-navbar>\n        \n  </ion-navbar>\n</ion-header> -->\n\n<ion-content padding  class="no-scroll">\n  <!-- Card stack container -->\n  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">\n    <!-- Card container -->\n    <ion-card #mycards1 swing-card *ngFor="let c of cards">\n      <ion-row *ngIf="c.picture">\n        <ion-col>\n            <img *ngIf="c.picture" [src]="c.picture.large">  \n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="c.picture">\n        <ion-col class="card_user_info">\n            <h2 class="card_user_name">{{ c.name.first }} {{ c.name.last}}</h2>  \n            <h4 class="card_user_city">{{ c.location.city }}</h4>\n        </ion-col>\n      </ion-row>\n      \n\n      <!-- <ion-item *ngIf="c.picture"> -->\n        <!-- <ion-avatar item-left>\n          <img *ngIf="c.picture" [src]="c.picture.medium">\n        </ion-avatar> -->\n        <!-- <h2>{{ c.name.first }} {{ c.name.last}}</h2> -->\n        <!-- <p>{{ c.email }}</p> -->\n        <!-- <h4>{{ c.location.city }}</h4> -->\n        <!-- <ion-card-content *ngIf="c.location"> -->\n          \n          <!-- From: {{ c.location.city }}, {{ c.location.postcode }}<br>\n          Phone: {{ c.phone }} -->\n        <!-- </ion-card-content> -->\n      <!-- </ion-item> -->\n \n      \n \n      <ion-row *ngIf="c.name">\n        <ion-col class="responseIcon">\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">\n            <!-- <ion-icon name="thumbs-down"></ion-icon> -->\n            <ion-icon name="close-circle" class="dislikeicon"></ion-icon>\n            <!-- No -->\n          </button>\n        </ion-col>\n        <ion-col  class="responseIcon">\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">\n            <ion-icon name="heart" class="likeicon"></ion-icon>\n            <!-- <ion-icon name="thumbs-up"></ion-icon> -->\n            <!-- Yes -->\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <!--/ Card container -->\n  </div>\n  <!-- <p style="text-align: center; width: 100%;">{{ recentCard }}</p> -->\n  <!--/ Card stack container -->\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/'<!-- <ion-header>\n  <ion-navbar>\n        \n  </ion-navbar>\n</ion-header> -->\n\n<ion-content padding  class="no-scroll">\n  <!-- Card stack container -->\n  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack" [style.zIndex]="-1000">\n    <!-- Card container --> \n    <ion-card #mycards1 swing-card *ngFor="let c of cards;trackBy:trackByCards; let i=index;" [style.zIndex]="-1+i" [style.marginTop]="i===0?\'0px\':\'12px\'">\n      <ion-row *ngIf="c.picture">\n        <ion-col>\n            <img *ngIf="c.picture" [src]="c.picture.large">  \n            <!-- <img *ngIf="c.picture" src="https://blackopswiki.s3.amazonaws.com/uploads/article/avatar/207/large_avatar_default-user-icon.png">   -->\n            \n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="c.picture">\n        <ion-col class="card_user_info">\n            <!-- <h2 class="card_user_name">{{i}}:{{ c.name.first }} {{ c.name.last}}</h2>   -->\n            <h2 class="card_user_name">{{ c.name.first }} {{ c.name.last}}</h2>  \n            <h4 class="card_user_city">{{ c.location.city }}</h4>\n        </ion-col>\n      </ion-row>\n      \n\n      <!-- <ion-item *ngIf="c.picture"> -->\n        <!-- <ion-avatar item-left>\n          <img *ngIf="c.picture" [src]="c.picture.medium">\n        </ion-avatar> -->\n        <!-- <h2>{{ c.name.first }} {{ c.name.last}}</h2> -->\n        <!-- <p>{{ c.email }}</p> -->\n        <!-- <h4>{{ c.location.city }}</h4> -->\n        <!-- <ion-card-content *ngIf="c.location"> -->\n          \n          <!-- From: {{ c.location.city }}, {{ c.location.postcode }}<br>\n          Phone: {{ c.phone }} -->\n        <!-- </ion-card-content> -->\n      <!-- </ion-item> -->\n \n      \n \n      <ion-row *ngIf="c.name">\n        <ion-col class="responseIcon">\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">\n            <!-- <ion-icon name="thumbs-down"></ion-icon> -->\n            <ion-icon name="close-circle" class="dislikeicon"></ion-icon>\n            <!-- No -->\n          </button>\n        </ion-col>\n        <ion-col  class="responseIcon">\n          <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">\n            <ion-icon name="heart" class="likeicon"></ion-icon>\n            <!-- <ion-icon name="thumbs-up"></ion-icon> -->\n            <!-- Yes -->\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <!--/ Card container -->\n  </div>\n  <!-- <p style="text-align: center; width: 100%;">{{ recentCard }}</p> -->\n  <!--/ Card stack container -->\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\github\ginder\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], HomePage);

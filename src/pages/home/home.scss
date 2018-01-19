@@ -8,12 +8,16 @@ page-home {
     position: relative;
     background-color:#4aaef5;
   }
+
+  ion-card.card.card-md{
+    background: white;
+  }
    
   #card-stack ion-card {
     border-radius: 5px;
     position: absolute;
     text-align: center;
-    top: 3%;
+    top: 3%;  
     height: 90%;
   }
 

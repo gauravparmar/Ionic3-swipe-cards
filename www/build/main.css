@@ -25726,6 +25726,10 @@ page-home #card-stack {
   background-color: #4aaef5;
 }
 
+page-home ion-card.card.card-md {
+  background: white;
+}
+
 page-home #card-stack ion-card {
   border-radius: 5px;
   position: absolute;

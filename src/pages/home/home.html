@@ -6,16 +6,19 @@
 
 <ion-content padding  class="no-scroll">
   <!-- Card stack container -->
-  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">
-    <!-- Card container -->
-    <ion-card #mycards1 swing-card *ngFor="let c of cards">
+  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack" [style.zIndex]="-1000">
+    <!-- Card container -->   
+    <ion-card #mycards1 swing-card *ngFor="let c of cards;trackBy:trackByCards; let i=index;" [style.zIndex]="-1+i" [style.marginTop]="i===0?'0px':'12px'">
       <ion-row *ngIf="c.picture">
         <ion-col>
             <!-- <img *ngIf="c.picture" [src]="c.picture.large">   -->
+            <img *ngIf="c.picture" src="https://blackopswiki.s3.amazonaws.com/uploads/article/avatar/207/large_avatar_default-user-icon.png">  
+            
         </ion-col>
       </ion-row>
       <ion-row *ngIf="c.picture">
         <ion-col class="card_user_info">
+            <!-- <h2 class="card_user_name">{{i}}:{{ c.name.first }} {{ c.name.last}}</h2>   -->
             <h2 class="card_user_name">{{ c.name.first }} {{ c.name.last}}</h2>  
             <h4 class="card_user_city">{{ c.location.city }}</h4>
         </ion-col>
